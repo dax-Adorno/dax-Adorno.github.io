@@ -1,21 +1,602 @@
 ---
+import "../styles/global.css";
+
+const projects = [
+  {
+    title: "AI Risk Decision Demo",
+    desc: "Demo de sistema de apoyo a decisiones basado en IA para evaluación de riesgo crediticio.",
+    repo: "https://github.com/dax-Adorno/ai-risk-decision-demo",
+    media: "/gifs/ai-risk.png",
+    stack: ["Python", "Machine Learning", "Data Analysis"],
+  },
+  {
+    title: "Zoonosis System",
+    desc: "Sistema web de gestión con React + TypeScript.",
+    repo: "https://github.com/dax-Adorno/zoonosis",
+    media: "/gifs/zoonosis.gif",
+    stack: ["React", "TypeScript", "Vite"],
+  },
+  {
+    title: "Python ETL Reporter",
+    desc: "Automatización de reportes desde Excel hacia documentos Word incorporando vista Open Street Map.",
+    repo: "https://github.com/dax-Adorno/python-etl-reporter",
+    media: "/gifs/etl-reporter.gif",
+    stack: ["Python", "Pandas", "ETL"],
+  },
+  {
+    title: "Kotlin Mobile Demo",
+    desc: "Calculadora impositiva, creada con Android desarrollada con Kotlin y Jetpack Compose.",
+    repo: "https://github.com/dax-Adorno/kotlin-mobile-demo",
+    media: "/gifs/kotlin-mobile.gif",
+    stack: ["Kotlin", "Compose", "Android"],
+  },
+];
+
+const links = {
+  github: "https://github.com/dax-Adorno",
+  linkedin: "https://www.linkedin.com/in/eduardo-dax-adorno-b-09a7072a2",
+  cv: "/Eduardo_Dax_Adorno_FullStack_Developer.pdf",
+};
 ---
 
-<html>
+<html lang="es">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dax Adorno | Portfolio</title>
   </head>
-  <body>
-    <h1>Portfolio de Dax Adorno</h1>
 
-    <p>Full Stack Developer</p>
+  <body class="bg-slate-950 text-white">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+		<nav class="sticky top-4 z-50 mb-8">
+  <div class="mx-auto flex max-w-fit items-center gap-2 rounded-2xl border border-slate-800/80 bg-slate-950/70 px-3 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+    
+    <a
+      href="#home"
+      class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800 hover:text-white"
+    >
+      Inicio
+    </a>
 
-    <h2>Proyectos</h2>
+    <a
+      href="#stack"
+      class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800 hover:text-white"
+    >
+      Stack
+    </a>
+	<a
+  		href="#about"
+  		class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800 hover:text-white"
+>
+  		Sobre mí
+	</a>
+	<a
+  href="#experience"
+  class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800 hover:text-white"
+>
+  Experiencia
+</a>
+    <a
+      href="#projects"
+      class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800 hover:text-white"
+    >
+      Proyectos
+    </a>
+	<a
+  href="#contact"
+  class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800 hover:text-white"
+>
+  Contacto
+</a>
+    <a
+      href="https://github.com/dax-Adorno"
+      target="_blank"
+      class="rounded-xl bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-400"
+    >
+      GitHub
+    </a>
+  </div>
+</nav>
 
-    <ul>
-      <li>Zoonosis System</li>
-      <li>Python ETL Reporter</li>
-      <li>Kotlin Mobile Demo</li>
-    </ul>
+      <header id="home" class="relative mb-20 overflow-hidden rounded-3xl border border-slate-800 bg-linear-to-br from-slate-900 via-slate-950 to-slate-900 p-10 shadow-2xl">
+
+  <div class="absolute inset-0 opacity-20">
+    <div class="absolute -top-16 -left-10 h-48 w-48 rounded-full bg-blue-500 blur-3xl"></div>
+    <div class="absolute top-20 right-0 h-56 w-56 rounded-full bg-cyan-400 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/3 h-40 w-40 rounded-full bg-indigo-500 blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
+
+    <div>
+      <p class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-4 py-2 text-sm text-slate-300">
+        <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+        Disponible para proyectos y oportunidades remotas
+      </p>
+
+      <h1 class="mt-6 text-5xl font-bold leading-tight text-blue-400 md:text-6xl">
+        Eduardo Dax Adorno
+      </h1>
+
+      <p class="mt-4 text-2xl font-medium text-slate-200">
+        Full Stack Developer
+      </p>
+
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
+        Desarrollo aplicaciones web, automatizaciones con Python y soluciones modernas con React, TypeScript y Kotlin.
+        Me enfoco en arquitectura escalable, experiencia de usuario y productos técnicamente sólidos en ciberseguridad.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="https://github.com/dax-Adorno"
+          target="_blank"
+          class="rounded-xl bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-400"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/eduardo-dax-adorno-b-09a7072a2"
+          target="_blank"
+          class="rounded-xl border border-slate-700 bg-slate-900/70 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+        >
+          LinkedIn
+        </a>
+
+        <a
+          href="/cv.pdf"
+          target="_blank"
+          class="rounded-xl border border-slate-700 bg-slate-900/70 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+        >
+          Descargar CV
+        </a>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-xl">
+        <h2 class="text-lg font-semibold text-white">Stack principal</h2>
+
+        <div class="mt-5 flex flex-wrap gap-2">
+          {["React","Astro", "TypeScript","javaScript", "Python","Django", "Node.js", "Kotlin", "Tailwind", "PostgreSQL","MongoDB", "FastAPI", "Docker"].map((tech) => (
+            <span class="rounded-full border border-slate-700 bg-slate-950/70 px-3 py-1 text-sm text-slate-200">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div class="mt-6 border-t border-slate-800 pt-6">
+          <p class="text-sm leading-6 text-slate-400">
+            Perfil orientado a desarrollo full stack, automatización de procesos (ETL), aplicaciones móviles, webs y soluciones con IA aplicada.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<section id= "stack" class="mb-16">
+  <div class="mb-8">
+    <h2 class="text-3xl font-bold text-white">Tech Stack</h2>
+    <p class="mt-2 text-slate-400">
+      Tecnologías con las que construyo aplicaciones, automatizaciones y productos completos.
+    </p>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+      <h3 class="text-lg font-semibold text-blue-400">Frontend</h3>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {["React", "TypeScript", "Vite", "Tailwind", "Axios"].map((tech) => (
+          <span class="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-200">{tech}</span>
+        ))}
+      </div>
+    </div>
+
+    <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+      <h3 class="text-lg font-semibold text-blue-400">Backend</h3>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {["Python", "FastAPI", "Node.js", "Express", "REST API"].map((tech) => (
+          <span class="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-200">{tech}</span>
+        ))}
+      </div>
+    </div>
+
+    <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+      <h3 class="text-lg font-semibold text-blue-400">Data & Automation</h3>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {["Pandas", "ETL", "Excel", "Automatización", "Reporting"].map((tech) => (
+          <span class="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-200">{tech}</span>
+        ))}
+      </div>
+    </div>
+
+    <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+      <h3 class="text-lg font-semibold text-blue-400">Mobile & Dev Tools</h3>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {["Kotlin", "Jetpack Compose", "Git", "GitHub", "VS Code"].map((tech) => (
+          <span class="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-200">{tech}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+	<section id="about" class="mb-16">
+  <div class="mb-8">
+    <h2 class="text-3xl font-bold text-white">Sobre mí</h2>
+    <p class="mt-2 text-slate-400">
+      Perfil técnico orientado al desarrollo de soluciones reales, automatización de procesos y construcción de productos digitales con visión integral.
+    </p>
+  </div>
+
+  <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+    
+    <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-8">
+      <h3 class="text-xl font-semibold text-blue-400">Perfil profesional</h3>
+
+      <p class="mt-4 leading-8 text-slate-300">
+        Soy desarrollador Full Stack con experiencia en proyectos web, automatización con Python,
+        aplicaciones móviles con Kotlin y soluciones orientadas a procesos reales.
+        Me enfoco en construir software útil, escalable y bien estructurado, con una fuerte base en calidad,
+        organización del código y experiencia de usuario.
+      </p>
+
+      <p class="mt-4 leading-8 text-slate-300">
+        Mi trabajo combina desarrollo frontend moderno, backend y lógica de negocio,
+        integración con APIs, procesamiento de datos y automatización de tareas administrativas
+        mediante herramientas ETL y generación de reportes.
+      </p>
+
+      <p class="mt-4 leading-8 text-slate-300">
+        También me interesa la aplicación de inteligencia artificial y sistemas de apoyo a la toma de decisiones,
+        integrando modelos, lógica y visualización en productos demostrables.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-8">
+      <h3 class="text-xl font-semibold text-blue-400">Fortalezas</h3>
+
+      <div class="mt-5 space-y-4">
+        <div class="rounded-xl border border-slate-800 bg-slate-950/50 p-4">
+          <h4 class="font-semibold text-white">Desarrollo Full Stack</h4>
+          <p class="mt-2 text-sm leading-6 text-slate-400">
+            Construcción de aplicaciones con React, TypeScript, Node.js y arquitecturas modulares.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-slate-800 bg-slate-950/50 p-4">
+          <h4 class="font-semibold text-white">Automatización & ETL</h4>
+          <p class="mt-2 text-sm leading-6 text-slate-400">
+            Procesamiento de datos con Python, Excel, Pandas y generación automática de reportes.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-slate-800 bg-slate-950/50 p-4">
+          <h4 class="font-semibold text-white">Mobile Development</h4>
+          <p class="mt-2 text-sm leading-6 text-slate-400">
+            Desarrollo de interfaces móviles modernas con Kotlin y Jetpack Compose.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-slate-800 bg-slate-950/50 p-4">
+          <h4 class="font-semibold text-white">Visión de producto</h4>
+          <p class="mt-2 text-sm leading-6 text-slate-400">
+            Capacidad para traducir requerimientos en sistemas funcionales, claros y presentables.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mb-16">
+  <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-8">
+    <h3 class="text-2xl font-bold text-white">Enfoque de trabajo</h3>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      <div>
+        <span class="text-sm font-semibold text-blue-400">01</span>
+        <h4 class="mt-2 text-lg font-semibold text-white">Análisis</h4>
+        <p class="mt-2 text-sm leading-6 text-slate-400">
+          Comprensión del problema, estructura de datos, requerimientos y flujo del usuario.
+        </p>
+      </div>
+
+      <div>
+        <span class="text-sm font-semibold text-blue-400">02</span>
+        <h4 class="mt-2 text-lg font-semibold text-white">Construcción</h4>
+        <p class="mt-2 text-sm leading-6 text-slate-400">
+          Desarrollo modular, integración técnica, enfoque en mantenibilidad y ciberseguridad del producto.
+        </p>
+      </div>
+
+      <div>
+        <span class="text-sm font-semibold text-blue-400">03</span>
+        <h4 class="mt-2 text-lg font-semibold text-white">Presentación</h4>
+        <p class="mt-2 text-sm leading-6 text-slate-400">
+          Entregables visuales, demos, documentación y portfolio orientado a impacto profesional.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="experience" class="mb-16">
+  <div class="mb-8">
+    <h2 class="text-3xl font-bold text-white">Experiencia</h2>
+    <p class="mt-2 text-slate-400">
+      Formación técnica, desarrollo de proyectos reales y experiencia aplicada en soluciones web, automatización y mobile.
+    </p>
+  </div>
+
+  <div class="space-y-6">
+
+    <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-8">
+      <div class="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h3 class="text-xl font-semibold text-white">
+            Desarrollador Full Stack / Python / Mobile
+          </h3>
+          <p class="text-blue-400">
+            Proyectos académicos y prácticos
+          </p>
+        </div>
+
+        <span class="rounded-full border border-slate-700 bg-slate-950/60 px-4 py-2 text-sm text-slate-300">
+          En evolución constante
+        </span>
+      </div>
+
+      <p class="mt-5 leading-8 text-slate-300">
+        Desarrollo de aplicaciones web con React, TypeScript y Vite, automatizaciones con Python orientadas a ETL y generación de reportes,
+        y aplicaciones móviles con Kotlin + Jetpack Compose. Enfoque en arquitectura modular, claridad visual y soluciones demostrables.
+      </p>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4">
+          <h4 class="font-semibold text-white">Web Development</h4>
+          <p class="mt-2 text-sm leading-6 text-slate-400">
+            Interfaces modernas, autenticación, CRUDs, roles de usuario, consumo de APIs y organización escalable del frontend.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4">
+          <h4 class="font-semibold text-white">Python & Automation</h4>
+          <p class="mt-2 text-sm leading-6 text-slate-400">
+            Procesamiento ETL, Excel, Pandas, generación automática de reportes y automatización de flujos administrativos.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4">
+          <h4 class="font-semibold text-white">Mobile Development</h4>
+          <p class="mt-2 text-sm leading-6 text-slate-400">
+            Construcción de aplicaciones Android con Kotlin, Compose y estructuras orientadas a experiencia de usuario.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4">
+          <h4 class="font-semibold text-white">Applied AI / Decision Systems</h4>
+          <p class="mt-2 text-sm leading-6 text-slate-400">
+            Desarrollo de demos y conceptos aplicados a soporte de decisiones, análisis de riesgo y automatización inteligente.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-8">
+        <h3 class="text-xl font-semibold text-blue-400">Formación</h3>
+
+        <div class="mt-6 space-y-5">
+          <div>
+            <h4 class="font-semibold text-white">
+              Técnico Superior en Desarrollo de Aplicaciones Web y Móviles
+            </h4>
+            <p class="mt-1 text-sm text-slate-400">
+              Formación orientada a desarrollo de software, arquitectura, bases de datos, mobile y soluciones integrales.
+            </p>
+          </div>
+
+		  <div>
+            <h4 class="font-semibold text-white">
+              Estudiante avanzado en Técnicatura Superior en Seguridad informática y Ciberseguridad
+            </h4>
+            <p class="mt-1 text-sm text-slate-400">
+              Formación orientada al Rol principal del DPD y buenas practicas en Desarrollo de apps.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-white">
+              Especialización práctica en Python y automatización
+            </h4>
+            <p class="mt-1 text-sm text-slate-400">
+              ETL, procesamiento de datos, generación de reportes, automatización de tareas y herramientas administrativas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-8">
+        <h3 class="text-xl font-semibold text-blue-400">Enfoque profesional</h3>
+
+        <div class="mt-6 space-y-4">
+          <div class="flex gap-4">
+            <span class="text-blue-400 font-bold">01</span>
+            <div>
+              <h4 class="font-semibold text-white">Construcción de soluciones reales</h4>
+              <p class="mt-1 text-sm text-slate-400">
+                Priorizo proyectos funcionales, demostrables y alineados a necesidades concretas.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <span class="text-blue-400 font-bold">02</span>
+            <div>
+              <h4 class="font-semibold text-white">Orden técnico y mantenibilidad</h4>
+              <p class="mt-1 text-sm text-slate-400">
+                Trabajo con estructuras claras, separación de responsabilidades y foco en escalabilidad.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <span class="text-blue-400 font-bold">03</span>
+            <div>
+              <h4 class="font-semibold text-white">Presentación profesional</h4>
+              <p class="mt-1 text-sm text-slate-400">
+                Me interesa que el software no solo funcione, sino que también esté bien presentado y bien documentado.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="contact" class="mb-16">
+  <div class="rounded-3xl border border-slate-800 bg-linear-to-br from-slate-900 via-slate-950 to-slate-900 p-10 shadow-2xl">
+    <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      
+      <div>
+        <h2 class="text-3xl font-bold text-white">Contacto</h2>
+        <p class="mt-3 max-w-2xl text-slate-400 leading-8">
+          Estoy disponible para oportunidades laborales, proyectos freelance y colaboraciones técnicas.
+          Si te interesa mi perfil, podés contactarme directamente por LinkedIn, GitHub o descargar mi CV.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href="https://github.com/dax-Adorno"
+            target="_blank"
+            class="rounded-xl bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-400"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/eduardo-dax-adorno-b-09a7072a2"
+            target="_blank"
+            class="rounded-xl border border-slate-700 bg-slate-900/70 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            class="rounded-xl border border-slate-700 bg-slate-900/70 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+          >
+            Descargar CV
+          </a>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-slate-800 bg-slate-950/50 p-6">
+        <h3 class="text-lg font-semibold text-blue-400">Canales</h3>
+
+        <div class="mt-5 space-y-4">
+          <div class="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p class="text-sm font-semibold text-white">GitHub</p>
+            <a
+              href="https://github.com/dax-Adorno"
+              target="_blank"
+              class="mt-2 inline-block text-sm text-slate-400 hover:text-blue-400"
+            >
+              github.com/dax-Adorno
+            </a>
+          </div>
+
+          <div class="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p class="text-sm font-semibold text-white">LinkedIn</p>
+            <a
+              href="https://www.linkedin.com/in/eduardo-dax-adorno-b-09a7072a2"
+              target="_blank"
+              class="mt-2 inline-block text-sm text-slate-400 hover:text-blue-400"
+            >
+              linkedin.com/in/eduardo-dax-adorno-b-09a7072a2
+            </a>
+          </div>
+
+          <div class="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+            <p class="text-sm font-semibold text-white">CV</p>
+            <a
+              href="/cv.pdf"
+              target="_blank"
+              class="mt-2 inline-block text-sm text-slate-400 hover:text-blue-400"
+            >
+              Descargar versión PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      <section id="projects">
+        <div class="mb-8">
+     <h2 class="text-3xl font-bold text-white">Featured Projects</h2>
+     <p class="mt-2 text-slate-400">
+      Selección de proyectos con foco en producto, arquitectura y experiencia técnica.
+     </p>
+	 </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {projects.map((p) => (
+            <article
+              class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur
+                     transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/60
+                     hover:shadow-[0_0_0_1px_rgba(96,165,250,.2),0_20px_60px_-20px_rgba(0,0,0,.8)]"
+            >
+              {/* glow */}
+              <div
+                class="pointer-events-none absolute -inset-24 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
+                style="background: radial-gradient(circle at 30% 20%, rgba(59,130,246,.35), transparent 60%);"
+              />
+
+              {/* media */}
+              <div class="relative">
+                <img
+                  src={p.media}
+                  alt={p.title}
+                  loading="lazy"
+                  class="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+                <div class="absolute inset-0 bg-linear-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
+              </div>
+
+              <div class="p-6">
+                <h3 class="text-lg font-semibold">{p.title}</h3>
+
+                <p class="text-slate-400 mt-2">{p.desc}</p>
+
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {p.stack.map((tech) => (
+                    <span class="rounded-full border border-slate-700/80 bg-slate-950/40 px-3 py-1 text-xs text-slate-200">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href={p.repo}
+                    target="_blank"
+                    class="rounded-lg bg-blue-500 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-400 transition"
+                  >
+                    Ver repo →
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
   </body>
 </html>
