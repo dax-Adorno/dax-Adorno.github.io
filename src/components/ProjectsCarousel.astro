@@ -1,0 +1,131 @@
+---
+type Project = {
+  title: string;
+  desc: string;
+  repo: string;
+  media: string;
+  demo?: string;
+  stack: string[];
+};
+
+const { projects } = Astro.props as { projects: Project[] };
+const loopedProjects = [...projects, ...projects];
+---
+
+<section id="projects" class="mb-24">
+  <div class="mb-10 flex items-end justify-between gap-6">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400/80">
+        Portfolio
+      </p>
+      <h2 class="mt-2 text-4xl font-bold text-white">
+        Featured Projects
+      </h2>
+      <p class="mt-3 max-w-2xl text-slate-400">
+        Proyectos seleccionados con foco en producto, automatización, arquitectura y experiencia de usuario.
+      </p>
+    </div>
+  </div>
+
+  <div class="carousel-shell relative overflow-hidden rounded-4xl border border-slate-800/80 bg-slate-950/40 p-6 backdrop-blur-xl">
+    <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-linear-to-r from-slate-950 to-transparent"></div>
+    <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-linear-to-l from-slate-950 to-transparent"></div>
+
+    <div class="carousel-track flex w-max gap-6">
+      {loopedProjects.map((p) => (
+        <article
+          class="group relative w-95 shrink-0 overflow-hidden rounded-[1.75rem] border border-slate-800 bg-slate-900/70 shadow-[0_10px_40px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-2 hover:border-blue-400/50 hover:shadow-[0_20px_70px_rgba(0,0,0,0.55)]"
+        >
+          <div
+            class="pointer-events-none absolute -inset-24 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
+            style="background: radial-gradient(circle at 30% 20%, rgba(59,130,246,.30), transparent 60%);"
+          />
+
+          <div class="relative overflow-hidden">
+            <img
+              src={p.media}
+              alt={p.title}
+              class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-linear-to-t from-slate-950/85 via-transparent to-transparent"></div>
+
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+              <span class="rounded-full border border-white/10 bg-slate-950/70 px-3 py-1 text-xs font-medium text-slate-200 backdrop-blur">
+                Proyecto destacado
+              </span>
+
+              <a
+                href={p.repo}
+                target="_blank"
+                class="rounded-full border border-white/10 bg-slate-950/70 px-3 py-1 text-xs font-medium text-white backdrop-blur transition hover:bg-blue-500"
+              >
+                GitHub →
+              </a>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold text-white">{p.title}</h3>
+
+            <p class="mt-3 text-sm leading-7 text-slate-400">
+              {p.desc}
+            </p>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              {p.stack.map((tech) => (
+                <span class="rounded-full border border-slate-700 bg-slate-950/60 px-3 py-1 text-xs text-slate-200">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div class="mt-6 flex gap-3">
+              <a
+                href={p.repo}
+                target="_blank"
+                class="rounded-xl bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-400"
+              >
+                Ver repo
+              </a>
+
+              {p.demo && (
+                <a
+                  href={p.demo}
+                  target="_blank"
+                  class="rounded-xl border border-slate-700 bg-slate-900/70 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+                >
+                  Demo
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .carousel-shell {
+    mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+  }
+
+  .carousel-track {
+    animation: scrollProjects 36s linear infinite;
+  }
+
+  .carousel-shell:hover .carousel-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes scrollProjects {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>
