@@ -5,7 +5,7 @@ import ProjectsCarousel from "../components/ProjectsCarousel.astro";
 const projects = [
   {
     title: "Turnos Legal App",
-    desc: "Aplicación web para gestión de turnos en un estudio jurídico, con enfoque en experiencia de usuario, arquitectura moderna y flujo profesional de reservas.",
+    desc: "Web app for appointment management in a law firm, focused on user experience, modern architecture and professional booking flows.",
     repo: "https://github.com/dax-Adorno/turnos-legal-app",
     media: "/gifs/legal.gif",
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind"],
@@ -13,7 +13,7 @@ const projects = [
   },
   {
     title: "AI Risk Decision Demo",
-    desc: "Demo de sistema de apoyo a decisiones basado en IA para evaluación de riesgo, con foco en claridad visual y lectura rápida de resultados.",
+    desc: "AI-powered decision support system demo for risk evaluation, focused on visual clarity and fast result reading.",
     repo: "https://github.com/dax-Adorno/ai-risk-decision-demo",
     media: "/gifs/ai-risk.png",
     stack: ["Python", "Machine Learning", "Data Analysis"],
@@ -21,7 +21,7 @@ const projects = [
   },
   {
     title: "Zoonosis System",
-    desc: "Sistema web de gestión con React + TypeScript orientado a administración y operación de flujos reales.",
+    desc: "Web management system with React + TypeScript oriented to administration and real workflow operations.",
     repo: "https://github.com/dax-Adorno/zoonosis",
     media: "/gifs/zoonosis.gif",
     stack: ["React", "TypeScript", "Vite"],
@@ -29,7 +29,7 @@ const projects = [
   },
   {
     title: "Python ETL Reporter",
-    desc: "Automatización de reportes desde Excel hacia Word con lógica ETL y foco en productividad administrativa.",
+    desc: "Automated report generation from Excel to Word with ETL logic focused on administrative productivity.",
     repo: "https://github.com/dax-Adorno/python-etl-reporter",
     media: "/gifs/etl-reporter.gif",
     stack: ["Python", "Pandas", "ETL"],
@@ -37,7 +37,7 @@ const projects = [
   },
   {
     title: "Kotlin Mobile Demo",
-    desc: "Aplicación Android desarrollada con Kotlin y Jetpack Compose, pensada para UI moderna y navegación clara.",
+    desc: "Android application built with Kotlin and Jetpack Compose, designed for modern UI and clear navigation.",
     repo: "https://github.com/dax-Adorno/kotlin-mobile-demo",
     media: "/gifs/kotlin-mobile.gif",
     stack: ["Kotlin", "Compose", "Android"],
@@ -52,452 +52,516 @@ const links = {
   linkedin: "https://www.linkedin.com/in/eduardo-dax-adorno-b-09a7072a2",
   cv: "/cv.pdf",
 };
+
+const stack = {
+  Frontend:  ["React", "TypeScript", "Vite", "Tailwind", "Axios"],
+  Backend:   ["Python", "FastAPI", "Node.js", "Express", "REST API"],
+  "Data & Automation": ["Pandas", "ETL", "Excel", "Automation", "Reporting"],
+  "Mobile & Tools": ["Kotlin", "Jetpack Compose", "Git", "GitHub", "VS Code"],
+};
 ---
 
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Eduardo Dax Adorno | Portfolio</title>
-    <meta
-      name="description"
-      content="Portfolio de Eduardo Dax Adorno. Full Stack Developer especializado en Python, React, TypeScript, Kotlin y soluciones aplicadas."
-    />
+    <meta name="description" content="Portfolio of Eduardo Dax Adorno — Full Stack Developer specialised in Python, React, TypeScript, Kotlin and applied solutions." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --glass-bg: rgba(255,255,255,0.04);
+        --glass-border: rgba(255,255,255,0.09);
+        --glass-hover: rgba(255,255,255,0.07);
+        --accent: #38bdf8;
+        --accent2: #818cf8;
+        --accent3: #34d399;
+        --text-primary: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --text-muted: #475569;
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: 'Space Grotesk', sans-serif;
+        background: #020817;
+        color: var(--text-primary);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .bg-scene {
+        position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+      }
+      .bg-orb {
+        position: absolute; border-radius: 50%;
+        filter: blur(120px); opacity: 0.18;
+        animation: drift 20s ease-in-out infinite alternate;
+      }
+      .bg-orb-1 { width: 700px; height: 700px; background: #1e40af; top: -200px; left: -200px; animation-delay: 0s; }
+      .bg-orb-2 { width: 500px; height: 500px; background: #4f46e5; top: 40%; right: -150px; animation-delay: -7s; }
+      .bg-orb-3 { width: 400px; height: 400px; background: #0891b2; bottom: -100px; left: 30%; animation-delay: -14s; }
+
+      .grid-overlay {
+        position: fixed; inset: 0; z-index: 0; pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        background-size: 60px 60px;
+      }
+
+      @keyframes drift {
+        from { transform: translate(0, 0) scale(1); }
+        to   { transform: translate(40px, 30px) scale(1.08); }
+      }
+
+      .glass {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .glass-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-radius: 20px;
+        transition: border-color .3s, background .3s;
+      }
+      .glass-card:hover {
+        border-color: rgba(56,189,248,0.25);
+        background: var(--glass-hover);
+      }
+
+      .wrapper { position: relative; z-index: 1; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+      nav { position: sticky; top: 16px; z-index: 100; margin-bottom: 80px; }
+      .nav-inner {
+        display: flex; align-items: center; gap: 4px;
+        width: fit-content; margin: 0 auto; padding: 8px 12px;
+        border-radius: 16px; background: rgba(2,8,23,0.7);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      }
+      .nav-inner a {
+        padding: 8px 16px; border-radius: 10px; font-size: 13px; font-weight: 500;
+        color: var(--text-secondary); text-decoration: none;
+        transition: background .2s, color .2s;
+      }
+      .nav-inner a:hover { background: var(--glass-hover); color: var(--text-primary); }
+      .nav-cta {
+        padding: 8px 18px !important; border-radius: 10px !important;
+        background: var(--accent) !important; color: #020817 !important;
+        font-weight: 600 !important; transition: opacity .2s !important;
+      }
+      .nav-cta:hover { opacity: .85 !important; background: var(--accent) !important; }
+
+      .hero { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; margin-bottom: 80px; }
+      @media (max-width: 768px) { .hero { grid-template-columns: 1fr; } .hero-avatar-col { display: none; } }
+
+      .hero-badge {
+        display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px;
+        border-radius: 999px; border: 1px solid var(--glass-border); background: var(--glass-bg);
+        font-size: 13px; color: var(--text-secondary); margin-bottom: 28px;
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .hero-badge span { width: 7px; height: 7px; border-radius: 50%; background: var(--accent3); display: inline-block; }
+
+      h1.hero-title {
+        font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 700;
+        line-height: 1.04; letter-spacing: -0.03em; margin-bottom: 24px;
+      }
+      .hero-title .line-accent { color: var(--accent); }
+      .hero-title .line-dim { color: var(--text-secondary); font-weight: 300; }
+
+      .hero-sub { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); max-width: 520px; margin-bottom: 36px; }
+      .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+      .btn-primary {
+        padding: 12px 24px; border-radius: 12px; background: var(--accent); color: #020817;
+        font-size: 14px; font-weight: 600; text-decoration: none;
+        transition: opacity .2s, transform .15s;
+      }
+      .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+      .btn-ghost {
+        padding: 11px 22px; border-radius: 12px; border: 1px solid var(--glass-border);
+        background: var(--glass-bg); color: var(--text-primary); font-size: 14px; font-weight: 500;
+        text-decoration: none; transition: border-color .2s, background .2s, transform .15s;
+      }
+      .btn-ghost:hover { border-color: rgba(255,255,255,0.2); background: var(--glass-hover); transform: translateY(-1px); }
+
+      .avatar-wrapper { position: relative; width: 260px; height: 260px; }
+      .avatar-ring {
+        position: absolute; inset: -3px; border-radius: 50%;
+        background: conic-gradient(var(--accent), var(--accent2), var(--accent3), var(--accent));
+        animation: spin 6s linear infinite; z-index: 0;
+      }
+      .avatar-ring-inner { position: absolute; inset: 3px; border-radius: 50%; background: #020817; z-index: 1; }
+      .avatar-img {
+        position: absolute; inset: 8px; border-radius: 50%; overflow: hidden; z-index: 2;
+        background: linear-gradient(135deg, rgba(56,189,248,.15), rgba(129,140,248,.15));
+        border: 1px solid var(--glass-border);
+        display: flex; align-items: center; justify-content: center;
+      }
+      .avatar-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+      .avatar-placeholder { font-size: 4rem; font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+      @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+      .stats-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 80px; }
+      @media (max-width: 640px) { .stats-bar { grid-template-columns: repeat(2,1fr); } }
+      .stat-card { padding: 24px 20px; border-radius: 16px; border: 1px solid var(--glass-border); background: var(--glass-bg); backdrop-filter: blur(20px); }
+      .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; font-family: 'JetBrains Mono', monospace; }
+      .stat-value { font-size: 1.7rem; font-weight: 700; color: var(--text-primary); }
+
+      .section-tag { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-family: 'JetBrains Mono', monospace; margin-bottom: 10px; }
+      .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 12px; }
+      .section-sub { font-size: 1rem; color: var(--text-secondary); line-height: 1.75; max-width: 560px; margin-bottom: 40px; }
+
+      .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
+      .stack-card { padding: 24px; border-radius: 18px; }
+      .stack-card-title { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 16px; font-family: 'JetBrains Mono', monospace; letter-spacing: .05em; }
+      .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+      .tag {
+        padding: 5px 14px; border-radius: 999px; background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: var(--text-secondary);
+        transition: border-color .2s, color .2s;
+      }
+      .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+      .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 40px; border-radius: 24px; }
+      @media (max-width: 768px) { .featured-grid { grid-template-columns: 1fr; } }
+      .featured-label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 12px; }
+      .featured-title { font-size: 2rem; font-weight: 700; margin-bottom: 16px; }
+      .featured-desc { font-size: .95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
+      .featured-img { border-radius: 16px; overflow: hidden; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.03); aspect-ratio: 16/10; }
+      .featured-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+      .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; }
+      @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } }
+      .about-text { font-size: .95rem; color: var(--text-secondary); line-height: 1.85; }
+      .strength-item {
+        padding: 16px 18px; border-radius: 14px; border: 1px solid var(--glass-border);
+        background: rgba(255,255,255,0.025); margin-bottom: 12px; transition: border-color .25s;
+      }
+      .strength-item:hover { border-color: rgba(56,189,248,.3); }
+      .strength-item h4 { font-size: .9rem; font-weight: 600; margin-bottom: 4px; }
+      .strength-item p { font-size: .82rem; color: var(--text-secondary); line-height: 1.6; }
+
+      .exp-main { padding: 36px; border-radius: 22px; margin-bottom: 20px; }
+      .exp-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+      .exp-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 4px; }
+      .exp-sub { font-size: .875rem; color: var(--accent); }
+      .exp-badge { padding: 6px 16px; border-radius: 999px; border: 1px solid var(--glass-border); font-size: 12px; color: var(--text-secondary); white-space: nowrap; font-family: 'JetBrains Mono', monospace; }
+      .exp-body { font-size: .9rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+      .exp-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      @media (max-width: 600px) { .exp-detail-grid { grid-template-columns: 1fr; } }
+      .exp-detail { padding: 16px; border-radius: 14px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.025); }
+      .exp-detail h4 { font-size: .875rem; font-weight: 600; margin-bottom: 6px; }
+      .exp-detail p { font-size: .8rem; color: var(--text-secondary); line-height: 1.6; }
+
+      .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      @media (max-width: 700px) { .edu-grid { grid-template-columns: 1fr; } }
+      .num-list { display: flex; flex-direction: column; gap: 16px; }
+      .num-item { display: flex; gap: 16px; }
+      .num { font-size: .875rem; font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; min-width: 28px; padding-top: 1px; }
+      .num-text h4 { font-size: .9rem; font-weight: 600; margin-bottom: 4px; }
+      .num-text p { font-size: .82rem; color: var(--text-secondary); line-height: 1.6; }
+
+      .contact-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; padding: 48px; border-radius: 24px; }
+      @media (max-width: 768px) { .contact-inner { grid-template-columns: 1fr; padding: 32px; } }
+      .contact-title { font-size: 2rem; font-weight: 700; margin-bottom: 12px; }
+      .contact-sub { font-size: .95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 28px; }
+      .channel-item { padding: 14px 18px; border-radius: 14px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.025); margin-bottom: 12px; }
+      .channel-item:last-child { margin-bottom: 0; }
+      .channel-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 4px; }
+      .channel-link { font-size: .85rem; color: var(--text-secondary); text-decoration: none; transition: color .2s; }
+      .channel-link:hover { color: var(--accent); }
+
+      footer { text-align: center; padding: 40px 0 32px; color: var(--text-muted); font-size: .8rem; border-top: 1px solid var(--glass-border); margin-top: 80px; font-family: 'JetBrains Mono', monospace; }
+
+      section { margin-bottom: 96px; }
+    </style>
   </head>
 
-  <body class="bg-slate-950 text-white selection:bg-blue-500/30 selection:text-white">
-
-    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div class="absolute -left-48 -top-40 h-136 w-136 rounded-full bg-blue-500/10 blur-3xl"></div>
-      <div class="absolute -right-40 top-40 h-112 w-md rounded-full bg-cyan-400/10 blur-3xl"></div>
-      <div class="absolute -bottom-32 left-1/3 h-96 w-[24rem] rounded-full bg-indigo-500/10 blur-3xl"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.04),transparent_35%)]"></div>
+  <body>
+    <div class="bg-scene">
+      <div class="bg-orb bg-orb-1"></div>
+      <div class="bg-orb bg-orb-2"></div>
+      <div class="bg-orb bg-orb-3"></div>
     </div>
+    <div class="grid-overlay"></div>
 
-    <div class="mx-auto max-w-7xl px-6 py-10">
-      <nav class="sticky top-4 z-50 mb-10">
-        <div class="mx-auto flex max-w-fit items-center gap-2 rounded-2xl border border-white/10 bg-black/30 px-3 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl">
-          <a href="#home" class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/6 hover:text-white">Inicio</a>
-          <a href="#stack" class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/6 hover:text-white">Stack</a>
-          <a href="#about" class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/6 hover:text-white">Sobre mí</a>
-          <a href="#experience" class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/6 hover:text-white">Experiencia</a>
-          <a href="#projects" class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/6 hover:text-white">Proyectos</a>
-          <a href="#contact" class="rounded-xl px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/6 hover:text-white">Contacto</a>
-          <a href={links.github} target="_blank" class="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-slate-200">GitHub</a>
+    <div class="wrapper" style="padding-top: 24px;">
+
+      <!-- NAV -->
+      <nav>
+        <div class="nav-inner">
+          <a href="#home">Home</a>
+          <a href="#stack">Stack</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href={links.github} target="_blank" class="nav-cta">GitHub</a>
         </div>
       </nav>
 
-      <header id="home" class="mb-24">
-        <div class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
-          <div>
-            <p class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-sm text-slate-300 backdrop-blur">
-              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-              Full Stack · Python · React · Kotlin · AI Systems
-            </p>
-
-            <h1 class="mt-8 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-white md:text-7xl">
-              Building digital products,
-              automation and applied
-              <span class="text-slate-400"> software experiences.</span>
-            </h1>
-
-            <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
-              Soy Eduardo Dax Adorno, desarrollador full stack enfocado en productos web modernos,
-              automatización con Python, mobile con Kotlin y soluciones técnicas bien presentadas.
-            </p>
-
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a href={links.github} target="_blank" class="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200">
-                GitHub
-              </a>
-              <a href={links.linkedin} target="_blank" class="rounded-xl border border-white/10 bg-white/3 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/6">
-                LinkedIn
-              </a>
-              <a href={links.cv} target="_blank" class="rounded-xl border border-white/10 bg-white/3 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/6">
-                Descargar CV
-              </a>
-            </div>
+      <!-- HERO -->
+      <header id="home" class="hero">
+        <div>
+          <div class="hero-badge">
+            <span></span>
+            Available for work · Full Stack Developer
           </div>
 
-          <div class="rounded-4xl border border-white/10 bg-white/3 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
-              Stack principal
-            </p>
+          <h1 class="hero-title">
+            Building<br />
+            <span class="line-accent">digital products</span><br />
+            <span class="line-dim">with real focus.</span>
+          </h1>
 
-            <div class="mt-5 flex flex-wrap gap-2">
-              {["React", "Astro", "TypeScript", "Python", "Node.js", "Kotlin", "Tailwind", "FastAPI", "PostgreSQL", "Docker"].map((tech) => (
-                <span class="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-sm text-slate-200">
-                  {tech}
-                </span>
-              ))}
-            </div>
+          <p class="hero-sub">
+            I'm Eduardo Dax Adorno — full stack developer specialised in modern web, Python automation, mobile with Kotlin and technically polished solutions.
+          </p>
 
-            <div class="mt-6 border-t border-white/10 pt-6">
-              <p class="text-sm leading-7 text-slate-400">
-                Full stack orientado a frontend moderno, automatización de procesos, mobile y soluciones con lógica aplicada.
-              </p>
+          <div class="hero-actions">
+            <a href={links.github} target="_blank" class="btn-primary">View GitHub</a>
+            <a href={links.linkedin} target="_blank" class="btn-ghost">LinkedIn</a>
+            <a href={links.cv} target="_blank" class="btn-ghost">Download CV</a>
+          </div>
+        </div>
+
+        <!-- AVATAR — replace /avatar.jpg with your real photo path -->
+        <div class="hero-avatar-col">
+          <div class="avatar-wrapper">
+            <div class="avatar-ring"></div>
+            <div class="avatar-ring-inner"></div>
+            <div class="avatar-img">
+              <img
+                src="/avatar.jpg"
+                alt="Eduardo Dax Adorno"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+              />
+              <div class="avatar-placeholder" style="display:none;">DA</div>
             </div>
           </div>
         </div>
       </header>
 
-      <section class="mb-24">
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-2xl border border-white/10 bg-white/3 p-6 backdrop-blur-xl">
-            <p class="text-sm text-slate-400">Proyectos destacados</p>
-            <p class="mt-2 text-3xl font-bold text-white">4+</p>
+      <!-- STATS -->
+      <section>
+        <div class="stats-bar">
+          <div class="stat-card">
+            <p class="stat-label">Projects</p>
+            <p class="stat-value">4+</p>
           </div>
-          <div class="rounded-2xl border border-white/10 bg-white/3 p-6 backdrop-blur-xl">
-            <p class="text-sm text-slate-400">Stacks principales</p>
-            <p class="mt-2 text-3xl font-bold text-white">Web · Data · Mobile</p>
+          <div class="stat-card">
+            <p class="stat-label">Focus</p>
+            <p class="stat-value" style="font-size:1.1rem;padding-top:6px;">Web · Data · Mobile</p>
           </div>
-          <div class="rounded-2xl border border-white/10 bg-white/3 p-6 backdrop-blur-xl">
-            <p class="text-sm text-slate-400">Especialidad</p>
-            <p class="mt-2 text-3xl font-bold text-white">Arquitectura + UX</p>
+          <div class="stat-card">
+            <p class="stat-label">Specialty</p>
+            <p class="stat-value" style="font-size:1.1rem;padding-top:6px;">Architecture + UX</p>
           </div>
-          <div class="rounded-2xl border border-white/10 bg-white/3 p-6 backdrop-blur-xl">
-            <p class="text-sm text-slate-400">Modalidad</p>
-            <p class="mt-2 text-3xl font-bold text-white">Remote Ready</p>
+          <div class="stat-card">
+            <p class="stat-label">Modality</p>
+            <p class="stat-value" style="font-size:1.25rem;padding-top:4px;">Remote Ready</p>
           </div>
         </div>
       </section>
 
-      <section class="mb-24">
-        <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] items-center rounded-4xl border border-white/10 bg-white/3 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+      <!-- STACK -->
+      <section id="stack">
+        <p class="section-tag">Stack</p>
+        <h2 class="section-title">Technologies I build with</h2>
+        <p class="section-sub">A stack oriented towards modern frontend, Python automation, backend APIs and mobile development.</p>
+        <div class="stack-grid">
+          {Object.entries(stack).map(([category, techs]) => (
+            <div class="glass-card stack-card">
+              <p class="stack-card-title">{category}</p>
+              <div class="tag-row">
+                {techs.map(t => <span class="tag">{t}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- FEATURED PROJECT -->
+      <section>
+        <div class="glass featured-grid">
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
-              Proyecto principal
-            </p>
-
-            <h2 class="mt-3 text-4xl font-bold text-white">
-              {featured.title}
-            </h2>
-
-            <p class="mt-4 max-w-2xl text-slate-400 leading-8">
-              {featured.desc}
-            </p>
-
-            <div class="mt-5 flex flex-wrap gap-2">
-              {featured.stack.map((tech) => (
-                <span class="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-slate-200">
-                  {tech}
-                </span>
-              ))}
+            <p class="featured-label">Featured project</p>
+            <h2 class="featured-title">{featured.title}</h2>
+            <p class="featured-desc">{featured.desc}</p>
+            <div class="tag-row" style="margin-bottom:24px;">
+              {featured.stack.map(t => <span class="tag">{t}</span>)}
             </div>
-
-            <div class="mt-6 flex gap-3">
-              <a
-                href={featured.repo}
-                target="_blank"
-                class="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200"
-              >
-                Ver repositorio
-              </a>
-            </div>
+            <a href={featured.repo} target="_blank" class="btn-primary">View Repository</a>
           </div>
-
-          <div class="overflow-hidden rounded-3xl border border-white/10 bg-black/20">
-            <img
-              src={featured.media}
-              alt={featured.title}
-              class="h-full w-full object-cover"
-            />
+          <div class="featured-img">
+            <img src={featured.media} alt={featured.title} />
           </div>
         </div>
       </section>
 
-      <section id="stack" class="mb-24">
-        <div class="mb-10 max-w-3xl">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400/80">
-            Stack
-          </p>
-          <h2 class="mt-3 text-4xl font-bold text-white">Tecnologías con las que construyo</h2>
-          <p class="mt-3 text-slate-400 leading-8">
-            Trabajo con un stack orientado a frontend moderno, automatización con Python, backend API y desarrollo mobile.
-          </p>
-        </div>
+      <!-- PROJECTS CAROUSEL -->
+      <section id="projects">
+        <p class="section-tag">Projects</p>
+        <h2 class="section-title">What I've built</h2>
+        <p class="section-sub">Real, demonstrable projects across frontend, automation, mobile and applied AI.</p>
+        <ProjectsCarousel projects={projects} />
+      </section>
 
-        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <div class="rounded-2xl border border-white/10 bg-white/3 p-6 backdrop-blur-xl">
-            <h3 class="text-lg font-semibold text-blue-400">Frontend</h3>
-            <div class="mt-4 flex flex-wrap gap-2">
-              {["React", "TypeScript", "Vite", "Tailwind", "Axios"].map((tech) => (
-                <span class="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-200">{tech}</span>
-              ))}
-            </div>
+      <!-- ABOUT -->
+      <section id="about">
+        <p class="section-tag">About me</p>
+        <h2 class="section-title">Technical profile with product vision</h2>
+        <p class="section-sub">I build useful, demonstrable and well-presented software — caring as much about the technical base as the user experience.</p>
+        <div class="about-grid">
+          <div class="glass-card" style="padding:36px;">
+            <h3 style="font-size:1.1rem;font-weight:600;color:var(--accent);margin-bottom:20px;font-family:'JetBrains Mono',monospace;">Professional profile</h3>
+            <p class="about-text">Full Stack developer with experience in web projects, Python automation, mobile apps with Kotlin, and solutions oriented to real processes.</p>
+            <p class="about-text" style="margin-top:16px;">My work combines modern frontend, backend, API integration, data processing and administrative automation through ETL tools and automated report generation.</p>
+            <p class="about-text" style="margin-top:16px;">I'm also interested in applied AI and decision-support systems — integrating models, logic and visualisation into demonstrable products.</p>
           </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/3 p-6 backdrop-blur-xl">
-            <h3 class="text-lg font-semibold text-blue-400">Backend</h3>
-            <div class="mt-4 flex flex-wrap gap-2">
-              {["Python", "FastAPI", "Node.js", "Express", "REST API"].map((tech) => (
-                <span class="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-200">{tech}</span>
-              ))}
+          <div>
+            <div class="strength-item">
+              <h4>Full Stack Development</h4>
+              <p>Applications with React, TypeScript, Node.js and modular architectures.</p>
             </div>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/3 p-6 backdrop-blur-xl">
-            <h3 class="text-lg font-semibold text-blue-400">Data & Automation</h3>
-            <div class="mt-4 flex flex-wrap gap-2">
-              {["Pandas", "ETL", "Excel", "Automatización", "Reporting"].map((tech) => (
-                <span class="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-200">{tech}</span>
-              ))}
+            <div class="strength-item">
+              <h4>Automation & ETL</h4>
+              <p>Data processing with Python, Excel, Pandas and automatic report generation.</p>
             </div>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/3 p-6 backdrop-blur-xl">
-            <h3 class="text-lg font-semibold text-blue-400">Mobile & Dev Tools</h3>
-            <div class="mt-4 flex flex-wrap gap-2">
-              {["Kotlin", "Jetpack Compose", "Git", "GitHub", "VS Code"].map((tech) => (
-                <span class="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-200">{tech}</span>
-              ))}
+            <div class="strength-item">
+              <h4>Mobile Development</h4>
+              <p>Modern mobile interfaces with Kotlin and Jetpack Compose.</p>
+            </div>
+            <div class="strength-item">
+              <h4>Product Vision</h4>
+              <p>Turning requirements into clear, functional and well-presented systems.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="about" class="mb-24">
-        <div class="mb-10 max-w-3xl">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400/80">
-            Sobre mí
-          </p>
-          <h2 class="mt-3 text-4xl font-bold text-white">Perfil técnico con visión de producto</h2>
-          <p class="mt-3 text-slate-400 leading-8">
-            Me interesa construir software útil, demostrable y bien presentado, cuidando tanto la base técnica como la experiencia de uso.
-          </p>
-        </div>
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <p class="section-tag">Experience</p>
+        <h2 class="section-title">Real projects & applied training</h2>
+        <p class="section-sub">Building web solutions, Python automation and mobile development with a focus on real deliverables.</p>
 
-        <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div class="rounded-2xl border border-white/10 bg-white/3 p-8 backdrop-blur-xl">
-            <h3 class="text-xl font-semibold text-blue-400">Perfil profesional</h3>
-
-            <p class="mt-4 leading-8 text-slate-300">
-              Soy desarrollador Full Stack con experiencia en proyectos web, automatización con Python, aplicaciones móviles con Kotlin y soluciones orientadas a procesos reales.
-            </p>
-
-            <p class="mt-4 leading-8 text-slate-300">
-              Mi trabajo combina frontend moderno, backend, integración con APIs, procesamiento de datos y automatización administrativa mediante herramientas ETL y generación de reportes.
-            </p>
-
-            <p class="mt-4 leading-8 text-slate-300">
-              También me interesa la aplicación de inteligencia artificial y sistemas de apoyo a la toma de decisiones, integrando modelos, lógica y visualización en productos demostrables.
-            </p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/3 p-8 backdrop-blur-xl">
-            <h3 class="text-xl font-semibold text-blue-400">Fortalezas</h3>
-
-            <div class="mt-5 space-y-4">
-              <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-                <h4 class="font-semibold text-white">Desarrollo Full Stack</h4>
-                <p class="mt-2 text-sm leading-6 text-slate-400">
-                  Aplicaciones con React, TypeScript, Node.js y estructuras modulares.
-                </p>
-              </div>
-
-              <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-                <h4 class="font-semibold text-white">Automatización & ETL</h4>
-                <p class="mt-2 text-sm leading-6 text-slate-400">
-                  Procesamiento de datos con Python, Excel, Pandas y generación automática de reportes.
-                </p>
-              </div>
-
-              <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-                <h4 class="font-semibold text-white">Mobile Development</h4>
-                <p class="mt-2 text-sm leading-6 text-slate-400">
-                  Interfaces móviles modernas con Kotlin y Jetpack Compose.
-                </p>
-              </div>
-
-              <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-                <h4 class="font-semibold text-white">Visión de producto</h4>
-                <p class="mt-2 text-sm leading-6 text-slate-400">
-                  Capacidad para transformar requerimientos en sistemas claros, funcionales y presentables.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" class="mb-24">
-        <div class="mb-10 max-w-3xl">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400/80">
-            Experiencia
-          </p>
-          <h2 class="mt-3 text-4xl font-bold text-white">Proyectos reales y formación aplicada</h2>
-          <p class="mt-3 text-slate-400 leading-8">
-            Construcción de soluciones web, automatización con Python y desarrollo mobile con foco en entregables reales.
-          </p>
-        </div>
-
-        <div class="space-y-6">
-          <div class="rounded-2xl border border-white/10 bg-white/3 p-8 backdrop-blur-xl">
-            <div class="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-              <div>
-                <h3 class="text-xl font-semibold text-white">
-                  Desarrollador Full Stack / Python / Mobile
-                </h3>
-                <p class="text-blue-400">Proyectos académicos y prácticos</p>
-              </div>
-
-              <span class="rounded-full border border-white/10 bg-black/20 px-4 py-2 text-sm text-slate-300">
-                En evolución constante
-              </span>
-            </div>
-
-            <p class="mt-5 leading-8 text-slate-300">
-              Desarrollo de aplicaciones web con React, TypeScript y Vite, automatizaciones con Python orientadas a ETL y generación de reportes, y aplicaciones móviles con Kotlin + Jetpack Compose.
-            </p>
-
-            <div class="mt-6 grid gap-4 md:grid-cols-2">
-              <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-                <h4 class="font-semibold text-white">Web Development</h4>
-                <p class="mt-2 text-sm leading-6 text-slate-400">
-                  Interfaces modernas, autenticación, CRUDs, roles de usuario, consumo de APIs y organización escalable.
-                </p>
-              </div>
-
-              <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-                <h4 class="font-semibold text-white">Python & Automation</h4>
-                <p class="mt-2 text-sm leading-6 text-slate-400">
-                  ETL, Excel, Pandas, generación de reportes y automatización de flujos administrativos.
-                </p>
-              </div>
-
-              <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-                <h4 class="font-semibold text-white">Mobile Development</h4>
-                <p class="mt-2 text-sm leading-6 text-slate-400">
-                  Construcción de aplicaciones Android con Kotlin, Compose y estructura pensada para UX.
-                </p>
-              </div>
-
-              <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-                <h4 class="font-semibold text-white">Applied AI / Decision Systems</h4>
-                <p class="mt-2 text-sm leading-6 text-slate-400">
-                  Demos y conceptos aplicados a soporte de decisiones, análisis de riesgo y automatización inteligente.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="grid gap-6 lg:grid-cols-2">
-            <div class="rounded-2xl border border-white/10 bg-white/3 p-8 backdrop-blur-xl">
-              <h3 class="text-xl font-semibold text-blue-400">Formación</h3>
-
-              <div class="mt-6 space-y-5">
-                <div>
-                  <h4 class="font-semibold text-white">
-                    Técnico Superior en Desarrollo de Aplicaciones Web y Móviles
-                  </h4>
-                  <p class="mt-1 text-sm text-slate-400">
-                    Formación orientada a desarrollo de software, arquitectura, bases de datos, mobile y soluciones integrales.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 class="font-semibold text-white">
-                    Especialización práctica en Python y automatización
-                  </h4>
-                  <p class="mt-1 text-sm text-slate-400">
-                    ETL, procesamiento de datos, generación de reportes y automatización de tareas.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="rounded-2xl border border-white/10 bg-white/3 p-8 backdrop-blur-xl">
-              <h3 class="text-xl font-semibold text-blue-400">Enfoque profesional</h3>
-
-              <div class="mt-6 space-y-4">
-                <div class="flex gap-4">
-                  <span class="text-blue-400 font-bold">01</span>
-                  <div>
-                    <h4 class="font-semibold text-white">Construcción de soluciones reales</h4>
-                    <p class="mt-1 text-sm text-slate-400">
-                      Priorizo proyectos funcionales, demostrables y alineados a necesidades concretas.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="flex gap-4">
-                  <span class="text-blue-400 font-bold">02</span>
-                  <div>
-                    <h4 class="font-semibold text-white">Orden técnico y mantenibilidad</h4>
-                    <p class="mt-1 text-sm text-slate-400">
-                      Trabajo con estructuras claras, separación de responsabilidades y foco en escalabilidad.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="flex gap-4">
-                  <span class="text-blue-400 font-bold">03</span>
-                  <div>
-                    <h4 class="font-semibold text-white">Presentación profesional</h4>
-                    <p class="mt-1 text-sm text-slate-400">
-                      Me interesa que el software no solo funcione, sino que también esté bien presentado y documentado.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <ProjectsCarousel projects={projects} />
-
-      <section id="contact" class="mb-16">
-        <div class="rounded-3xl border border-white/10 bg-white/3 p-10 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl">
-          <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div class="glass exp-main">
+          <div class="exp-header">
             <div>
-              <h2 class="text-3xl font-bold text-white">Contacto</h2>
-              <p class="mt-3 max-w-2xl text-slate-400 leading-8">
-                Estoy disponible para oportunidades laborales, proyectos freelance y colaboraciones técnicas. Si te interesa mi perfil, podés contactarme directamente por LinkedIn, GitHub o descargar mi CV.
-              </p>
-
-              <div class="mt-8 flex flex-wrap gap-3">
-                <a href={links.github} target="_blank" class="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200">
-                  GitHub
-                </a>
-                <a href={links.linkedin} target="_blank" class="rounded-xl border border-white/10 bg-white/3 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/6">
-                  LinkedIn
-                </a>
-                <a href={links.cv} target="_blank" class="rounded-xl border border-white/10 bg-white/3 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/6">
-                  Descargar CV
-                </a>
-              </div>
+              <p class="exp-title">Full Stack / Python / Mobile Developer</p>
+              <p class="exp-sub">Academic & practical projects</p>
             </div>
+            <span class="exp-badge">Ongoing</span>
+          </div>
+          <p class="exp-body">Building web apps with React, TypeScript and Vite; Python automations for ETL and report generation; and mobile applications with Kotlin + Jetpack Compose.</p>
+          <div class="exp-detail-grid">
+            <div class="exp-detail">
+              <h4>Web Development</h4>
+              <p>Modern interfaces, authentication, CRUDs, user roles, API consumption and scalable architecture.</p>
+            </div>
+            <div class="exp-detail">
+              <h4>Python & Automation</h4>
+              <p>ETL, Excel, Pandas, report generation and automated administrative workflows.</p>
+            </div>
+            <div class="exp-detail">
+              <h4>Mobile Development</h4>
+              <p>Android apps with Kotlin, Compose and structure designed for UX.</p>
+            </div>
+            <div class="exp-detail">
+              <h4>Applied AI / Decision Systems</h4>
+              <p>Demos applied to decision support, risk analysis and intelligent automation.</p>
+            </div>
+          </div>
+        </div>
 
-            <div class="rounded-2xl border border-white/10 bg-black/20 p-6">
-              <h3 class="text-lg font-semibold text-blue-400">Canales</h3>
-
-              <div class="mt-5 space-y-4">
-                <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-                  <p class="text-sm font-semibold text-white">GitHub</p>
-                  <a href={links.github} target="_blank" class="mt-2 inline-block text-sm text-slate-400 hover:text-blue-400">
-                    github.com/dax-Adorno
-                  </a>
+        <div class="edu-grid">
+          <div class="glass-card" style="padding:32px;">
+            <h3 style="font-size:1rem;font-weight:600;color:var(--accent);margin-bottom:20px;font-family:'JetBrains Mono',monospace;">Education</h3>
+            <div style="margin-bottom:20px;">
+              <p style="font-weight:600;font-size:.9rem;margin-bottom:6px;">Higher Technician in Web & Mobile App Development</p>
+              <p style="font-size:.82rem;color:var(--text-secondary);line-height:1.6;">Software development, architecture, databases, mobile and integral solutions.</p>
+            </div>
+            <div>
+              <p style="font-weight:600;font-size:.9rem;margin-bottom:6px;">Practical specialisation in Python & Automation</p>
+              <p style="font-size:.82rem;color:var(--text-secondary);line-height:1.6;">ETL, data processing, report generation and task automation.</p>
+            </div>
+          </div>
+          <div class="glass-card" style="padding:32px;">
+            <h3 style="font-size:1rem;font-weight:600;color:var(--accent);margin-bottom:20px;font-family:'JetBrains Mono',monospace;">Professional approach</h3>
+            <div class="num-list">
+              <div class="num-item">
+                <span class="num">01</span>
+                <div class="num-text">
+                  <h4>Building real solutions</h4>
+                  <p>Functional, demonstrable projects aligned to concrete needs.</p>
                 </div>
-
-                <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-                  <p class="text-sm font-semibold text-white">LinkedIn</p>
-                  <a href={links.linkedin} target="_blank" class="mt-2 inline-block text-sm text-slate-400 hover:text-blue-400">
-                    linkedin.com/in/eduardo-dax-adorno-b-09a7072a2
-                  </a>
+              </div>
+              <div class="num-item">
+                <span class="num">02</span>
+                <div class="num-text">
+                  <h4>Technical order & maintainability</h4>
+                  <p>Clear structures, separation of concerns and focus on scalability.</p>
                 </div>
-
-                <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-                  <p class="text-sm font-semibold text-white">CV</p>
-                  <a href={links.cv} target="_blank" class="mt-2 inline-block text-sm text-slate-400 hover:text-blue-400">
-                    Descargar versión PDF
-                  </a>
+              </div>
+              <div class="num-item">
+                <span class="num">03</span>
+                <div class="num-text">
+                  <h4>Professional presentation</h4>
+                  <p>Software that works, looks good and is well documented.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="glass contact-inner">
+          <div>
+            <h2 class="contact-title">Let's work together</h2>
+            <p class="contact-sub">Available for job opportunities, freelance projects and technical collaborations. Reach out directly via LinkedIn, GitHub or download my CV.</p>
+            <div class="hero-actions">
+              <a href={links.github} target="_blank" class="btn-primary">GitHub</a>
+              <a href={links.linkedin} target="_blank" class="btn-ghost">LinkedIn</a>
+              <a href={links.cv} target="_blank" class="btn-ghost">Download CV</a>
+            </div>
+          </div>
+          <div>
+            <div class="channel-item">
+              <p class="channel-label">GitHub</p>
+              <a href={links.github} target="_blank" class="channel-link">github.com/dax-Adorno</a>
+            </div>
+            <div class="channel-item">
+              <p class="channel-label">LinkedIn</p>
+              <a href={links.linkedin} target="_blank" class="channel-link">linkedin.com/in/eduardo-dax-adorno-b-09a7072a2</a>
+            </div>
+            <div class="channel-item">
+              <p class="channel-label">CV</p>
+              <a href={links.cv} target="_blank" class="channel-link">Download PDF version</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        Built with Astro · Eduardo Dax Adorno · {new Date().getFullYear()}
+      </footer>
+
     </div>
   </body>
 </html>
